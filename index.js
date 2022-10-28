@@ -15,6 +15,12 @@ app.get("/courses", (req, res) => {
   res.send(data);
 });
 
+app.get("/courses/:categoryId", (req, res) => {
+  const categoryId = parseInt(req.params.categoryId);
+  const category_data = data.filter((n) => n.id === categoryId);
+  res.send(category_data);
+});
+
 app.listen(port, () => {
   console.log("Dragon News Server running on port", port);
 });
